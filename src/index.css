@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-jne-blue: #004a8d;
+  --color-jne-blue-light: #0066cc;
+  --color-jne-blue-dark: #003366;
+  --color-jne-red: #e31e24;
+  --color-jne-red-hover: #c4181f;
+  --color-jne-blue-hover: #00376a;
+  --color-sidebar: #0a1628;
+  --color-sidebar-hover: #132240;
+  --color-sidebar-active: #1a3260;
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-slate-50 text-gray-900;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(12px) saturate(180%);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .glass-dark {
+    backdrop-filter: blur(16px) saturate(200%);
+    background: rgba(10, 22, 40, 0.85);
+  }
+  .gradient-blue {
+    background: linear-gradient(135deg, #004a8d 0%, #0066cc 50%, #0088ff 100%);
+  }
+  .gradient-red {
+    background: linear-gradient(135deg, #e31e24 0%, #ff4757 100%);
+  }
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, rgba(0, 74, 141, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(227, 30, 36, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(0, 102, 204, 0.06) 0px, transparent 50%);
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #004a8d 0%, #0066cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Global SweetAlert2 Styling */
+  .swal2-popup {
+    @apply !rounded-3xl !shadow-2xl !border-0;
+  }
+  .swal2-confirm {
+    @apply !rounded-2xl bg-gradient-to-br from-[var(--color-jne-blue)] to-blue-600 !text-white hover:opacity-90;
+  }
+  .swal2-cancel {
+    @apply !rounded-2xl;
+  }
+}
